@@ -1,0 +1,623 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+	<title>Scjd Book Errata</title>
+	<style type="text/css">
+		body {
+			margin-left: 10%; margin-right: 10%;
+			font-family: verdana, arial, helvetica, sans-serif;
+			font-size: 12;
+		}
+		a {
+			text-decoration: none;
+			font-weight: bold;
+			color:  #003366;
+			outline: none;
+		}
+		a:visited { color:  #003366; }
+		a:active { color:  #003366; }
+		a:hover {
+			color:#990000;
+			text-decoration: underline;
+		}
+		h1 { color: #7A3E01; font-size: 24; }
+		h2 { color: #7A3E01; font-size: 18; }
+		h3 { color: #7A3E01; font-size: 12; }
+		table {
+			border-collapse: collapse;
+			border: medium solid gray;
+			border-width: 1px;
+			font-size: 12;
+		}
+		th {
+			border: medium solid gray;
+			border-width: 1px;
+			padding: 5px;
+			font-size: 14;
+			color: #7A3E01;
+			text-align: left;
+		}
+		td {
+			border: medium solid gray;
+			border-width: 1px;
+			padding: 5px;
+			font-size: 12;
+		}
+		pre {
+			background-color: #ffffcc;
+			font-family: monospace;
+		}
+		.breadcrumbs { font-size: 10; }
+		.indent { margin-left: 3%; margin-right: 3%"; }
+		.internal { color: #7A3E01; font-size: 12; }
+		.internal a:hover { text-decoration: none; }
+	</style>
+</head>
+<body>
+	<p class="breadcrumbs">
+		<a href="http://apress.com/">Home</a>
+		<img src="http://apress.com/img/v2/bullet.gif" alt="&gt;"/>
+		<a href="http://apress.com/category.html?nID=32">Java</a>
+		<img src="http://apress.com/img/v2/bullet.gif" alt="&gt;"/>
+		<a href="http://apress.com/book/bookDisplay.html?bID=461">SCJD Exam with J2SE 5, Second Edition</a>
+		<img src="http://apress.com/img/v2/bullet.gif" alt="&gt;"/>
+		Corrections
+	</p>
+
+	<h2>
+		Scjd Book Corrections
+	</h2>
+
+
+	<p>
+		Despite the best efforts of all involved, mistakes sometimes make it through to the printed edition.<br/>
+		We appologize for any inconvenience this may cause, and have listed the known errors here.
+	</p>
+
+
+	<!-- SIMPLE CORRECTIONS GO HERE -->
+
+	<table border width="100%">
+		<tr>
+			<th width="150">Location</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>
+				Page 32<br/>
+				Section heading:<br/>
+				"VarArgs"
+			</td>
+			<td>
+				<p>
+					The section heading for variable argument lists is
+					incorrectly spelt as "VarAgs".
+				</p>
+				<p>
+					It should be "VarArgs".
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 49<br/>
+				Assertions example
+			</td>
+			<td>
+				<p>
+					The example assertion given is:
+				</p>
+				<pre class="indent">assert (balance < 0) : "Business rule: balance cannot be < 0";</pre>
+				<p>
+					Assertions work by throwing an <tt>AssertionError</tt> if
+					the result is false. So the sample code would throw the
+					<tt>AssertionError</tt> in the wrong case - when the
+					<tt>balance</tt> was greater than zero. The correct code
+					should be:
+				</p>
+				<pre class="indent">assert (balance >= 0) : "Business rule: balance cannot be < 0";</pre>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 80<br/>
+				Source code line 5
+			</td>
+			<td>
+				The line ends with two semi-colons: "<tt>;;</tt>". <br/>
+				This is not an error, however it is generally considered bad form.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 85<br/>
+				<tt>IceCreamMan.java</tt>
+			</td>
+			<td>
+				<p>
+					Line 56 is not synchronized, however this leaves a loophole
+					where threads could be in the synchronized method at line
+					62 adding to the <tt>dishes</tt> object, while the
+					IceCreamMan thread is removing from that object outside a
+					synchronized block.
+				</p>
+				<p>
+					To solve this, line 62 should be inside a
+					<tt>synchronized(this)</tt> block.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 92<br/>
+				Listing 4-5
+			</td>
+			<td>
+				The file NotifyVersusNotifyAll.java included in the source
+				archive differs from the code in the book, and does not
+				behave as shown in the book. A better example is provided
+				below in <a href="#listing4-5">Listing 4-5</a>.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 98<br/>
+				Listing 4-8
+			</td>
+			<td>
+				<p>
+					While not strictly an error, the variable <tt>dle</tt>
+					declared and intialized in line 6 is never used, and
+					should be removed.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 99<br/>
+				Listing 4-8
+			</td>
+			<td>
+				The variable names for the objects being used as mutual
+				exclusion locks are incorrect in the printed version of the
+				code. The correct version is in the downloadable source, and is
+				shown in <a href="#listing4-8">Listing 4-8</a>.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 100<br/>
+				Listing 4-9
+			</td>
+			<td>
+				<p>
+					While not strictly an error, the variable <tt>rce</tt>
+					declared and intialized in line 4 is never used, and
+					should be removed.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 101<br/>
+				Listing 4-9
+			</td>
+			<td>
+				Further information:
+				<p class="indent">
+				The race condition is demonstrated by having the threads start
+				in random order dependant on a call to <tt>Math.random()</tt>.
+				This was done so that a <b>demonstratable</b> race condition
+				could be shown.</p>
+				<p class="indent">
+				However, technically speaking, a race condition
+				can occur in that code even without the conditional order of
+				starting the threads, as it is completely at the JVM's thread
+				scheduler's discretion which thread will start and execute
+				first.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 103<br/>
+				Source code line 11
+			</td>
+			<td>
+				As published, this appears as:
+				<pre class="indent">for(int i = 0; I &lt; 4; i++) {</pre>
+				It should read:
+				<pre class="indent">for(int i = 0; i &lt; 4; i++) {</pre>
+				(Somewhere in the editing, the word processor "helpfully"
+				changed my lowercase "i" to an uppercase "I".)
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 145<br/>
+				<tt>persistDvd</tt> method
+			</td>
+			<td>
+				<p>
+					The code presented does not cater for the situation where
+					two clients attempt to create a record at the same time.
+				</p>
+				<p>
+					Specifically, at line 350 both clients will believe that
+					the new record should be written at the location that was
+					the <tt>database.length()</tt> at line 349.
+				</p>
+				<p>
+					To avoid this situation we could synchronize the entire
+					<tt>persistDvd</tt> method, however this would reduce
+					concurrency for <i>all</i> clients - something we have
+					trying to avoid. Likewise, just synchronizing within the
+					<tt>addDvd</tt> method would just stop concurrency for all
+					clients adding records.
+				</p>
+				<p>
+					A better method might be to handle the problem at line 350
+					itself. Replacement code is shown below in the
+					<a href="#page145">additional code</a> for line 350 section.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 146<br/>
+				Paragraph 1
+			</td>
+			<td>
+				<p>
+					The <tt>persistDVD</tt> method has the wrong capitalization
+					- it should be <tt>persistDvd</tt>. That is, the paragraph
+					starts with:
+				</p>
+				<p class="indent">
+					The persistDVD method has a private ...
+				</p>
+				<p>
+					And it should read:
+				</p>
+				<p class="indent">
+					The persistDvd method has a private ...
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 147<br/>
+				<tt>persistDvd</tt> method<br/>
+				Lines 393 &amp; 394
+			</td>
+			<td>
+				<p>
+					When originally designed, a local variable
+					(<tt>persisted</tt>) was tracking whether the persistence
+					worked or not. In later iterations of code development,
+					it became clearer that this was using a variable for the
+					sake of using a variable. The variable was therefore
+					removed from the method code, and the relevant block of
+					code on page 145 was updated. Unfortunately the block of
+					code on page 147 was not updated at the same time. This
+					resulted in the following code being printed in the book:
+				</p>
+					<pre class="indent">log.exiting("DvdFileAccess", "persistDvd", persisted);
+return true;</pre>
+				<p>
+					However the variable <tt>persisted</tt> was never defined.
+				</p>
+				<p>
+					The downloadable code contains the code which works:
+				</p>
+					<pre class="indent">log.exiting("DvdFileAccess", "persistDvd", true);
+return true;</pre>
+				<p>
+					In both cases, though, we are using "magic" constants in the
+					code - using <tt>true</tt> in the call to the logger and
+					returning <tt>true</tt> from the method. It would be better
+					for the calling method to always assume that the
+					<tt>persist</tt> method works, unless an exception is thrown
+					- this would have required slightly more coding in our
+					<tt>addDvd</tt> and <tt>modifyDvd</tt> method, but would
+					be cleaner code.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 170<br/>
+				<tt>readExternal</tt> method<br/>
+			</td>
+			<td>
+				<p>
+					The example <tt>readExternal</tt> method provided takes a
+					parameter <tt>in</tt>, however the code within the method
+					uses the parameter <tt>out</tt>.
+				</p>
+				<p>
+					That is, the code should read:
+				</p>
+				<pre class="indent">    public void readExternal(ObjectInput in) {
+    in.readUTF(upc);
+    in.readUTF(name);
+    in.readUTF(composer);
+    in.readUTF(director);
+    in.readUTF(leadActor);
+    in.readUTF(supportingActor);
+    in.readUTF(year);
+    in.readUTF(copy);
+}</pre>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 303<br/>
+				Creating a Manifest file
+			</td>
+			<td>
+				Further information:
+				<p class="indent">
+					Some text editors do not save a blank line at the end of
+					the text file.
+				</p>
+				<p class="indent">
+					Some versions of the <tt>jar</tt> tool ignore the last line
+					of the manifest file. (The latest versions of the jar tool
+					do not appear to have this problem.)
+				</p>
+				<p class="indent">
+					If you happen to be using an editor that does not
+					automatically add a blank line to the end of your text file,
+					and you are using a version of the <tt>jar</tt> tool that
+					ignores the last line, you may find that your "executable"
+					jar file won't execute - the last line of your manifest
+					may have been dropped.
+				</p>
+				<p class="indent">
+					If this happens to you, manually add an extra blank line to
+					your manifest file.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 309<br/>
+				Running the Client Application in Networked Mode
+			</td>
+			<td>
+				<p>
+					The book currently provides the following instructions:
+				</p>
+				<p class="indent">
+					To start the networked client, at the command prompt, type the following:
+				</p>
+				<p class="indent">
+					<tt>javaw -jar sampleproject.jar server</tt>
+				</p>
+				<p>
+					This, of course, starts the server. It should read:
+				</p>
+				<p class="indent">
+					To start the networked client, at the command prompt, type the following:
+				</p>
+				<p class="indent">
+					<tt>javaw -jar sampleproject.jar</tt>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Page 322<br/>
+				FAQ 1
+			</td>
+			<td>
+				<p>
+					The FAQ states that the database files to run the sample
+					database are available in the downloadable zip file.
+				</p>
+				<p>
+					To be more accurate, a sample database file can be created
+					by running the <tt>DosClient</tt> application, and choosing
+					the option to create a sample database.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>Downloadable code</td>
+			<td>
+				<p>
+					The earliest version of the downloadable code included
+					<tt>RmiSocketExample.java</tt> and <tt>Server.java</tt>
+					in the  "<tt>src - examples</tt>" directory.
+				</p>
+				<p>
+					Neither class should have been included. They have been
+					removed from later downloads.
+				</p>
+				<p>
+					If you do have these classes in your download, you should
+					remove them, as they will cause conflicts when trying to
+					compile them at the same time as <tt>RmiProblem.java</tt>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>Downloadable code</td>
+			<td>
+				<p>
+					Some versions of the downloadable code included both
+					<tt>LockObjectNotMemberVariables.java</tt> and
+					<tt>LockObjectNonMemberVariables.java</tt> in the
+					"<tt>src - examples</tt>" directory.
+				</p>
+				<p>
+					This is not strictly a problem - it might just cause
+					confusion. The <tt>LockObjectNotMemberVariables.java</tt>
+					is the class that matches the book - the other can be
+					removed (or ignored).
+				</p>
+			</td>
+		</tr>
+	</table>
+
+	<br/>
+	<br/>
+
+	<!-- REPLACEMENTS FOR SOURCE CODE -->
+
+	<table border width="100%">
+	<tr>
+		<td><a name="listing4-5" class="internal">Listing 4-5.</a> <i>NotifyVersusNotifyAll.java</i> </td>
+		</tr>
+<tr><td><pre>import java.util.Date;
+
+public class NotifyVersusNotifyAll.extends Thread {
+    private static Object mutex = new Object();
+
+    public static void main(String[] args) throws InterruptedException {
+        for (int i = 0; i &lt; 5; i++) {
+            new NotifyVersusNotifyAll().start();
+        }
+
+        Thread.sleep(2000);
+        synchronized(mutex) {
+            System.out.println("Main thread kicking off other threads");
+//            mutex.notifyAll();
+            mutex.notify();
+        }
+    }
+
+    public void run() {
+        // Note: This code has changed significantly from what was
+        // published in the book, as the sample in the book does not show
+        // that the multiple threads are all woken.
+        try {
+            System.out.println(getName() + " waiting");
+            synchronized(mutex) {
+                mutex.wait();
+            }
+
+            // if we called notifyAll(), then all threads will get to this line
+            // at roughly the same time. If we called notify() then only one
+            // thread will get here, then when it calls notify() another thread
+            // will get here, and so on.
+            System.out.println(getName() + " woken up");
+            Thread.sleep(2000);
+            System.out.println(getName() + " waking up another thread");
+
+            // need to get back inside a synchronized block to call notify()
+            synchronized(mutex) {
+                mutex.notify();
+            }
+        } catch (InterruptedException ie) {
+            ie.printStackTrace();
+        }
+    }
+}</pre></td></tr>
+</table>
+
+	<br/>
+	<br/>
+
+	<table border width="100%">
+	<tr>
+		<td><a name="listing4-8" class="internal">Listing 4-8.</a> <i>Deadlock Example</i> </td>
+	</tr>
+<tr><td><pre>public class DeadlockExample {
+    /**
+     * Entry point to the application. Creates 2 threads that will deadlock.
+     */
+    public static void main(String args[]){
+        Object lockA = "Lock A";
+        Object lockB = "Lock B";
+
+        Runner thread1 = new Runner(lockA, lockB);
+        Runner thread2 = new Runner(lockB, lockA);
+
+        thread1.start();
+        thread2.start();
+    }
+
+    /**
+     * Lock two objects in the order they were specified in the constructor.
+     */
+    static class Runner extends Thread {
+        private Object lock1;
+        private Object lock2;
+
+        public Runner(Object firstLockToGet, Object secondLockToGet) {
+            this.lock1 = firstLockToGet;
+            this.lock2 = secondLockToGet;
+        }
+
+        public void run() {
+            String name = Thread.currentThread().getName();
+            synchronized(lock1) {
+                System.out.println(name + ": locked " + lock1);
+                delay(name);
+                System.out.println(name + ": trying to get " + lock2);
+                synchronized(lock2) {
+                    System.out.println(name + ": locked " + lock2);
+                }
+            }
+        }
+    }
+
+    /**
+     * build in a delay to allow the other thread time to lock the object
+     * the delaying thread would like to get.
+     */
+    private static void delay(String name) {
+        try {
+            System.out.println(name + ": delaying 1 second");
+            Thread.currentThread().sleep(1000L);
+        } catch(InterruptedException ie) {
+            ie.printStackTrace();
+        }
+    }
+}</pre></td></tr>
+</table>
+
+
+	<br/>
+	<br/>
+
+	<table border width="100%">
+	<tr>
+		<td><a name="page145" class="internal">Page 145.</a> <i>persistDvd - additional code is highlighted</i> </td>
+	</tr>
+<tr><td><pre>349                 offset = database.length();
+349a                while (recordNumbers.containsValue(offset)) {
+349b                    offset += DVD.RECORD_LENGTH;
+349c                }
+350                 recordNumbers.put(dvd.getUPC(), offset);</pre></td></tr>
+</table>
+
+<p>
+Special thanks to the following for providing this incredibility valuable feedback.
+</p>
+<ul>
+	<li>Barry Gaunt</li>
+	<li>Chulwoo Choi</li>
+	<li>Joe Stewart</li>
+	<li>Kaspar Thommen</li>
+	<li>Kirk Whitaker</li>
+	<li>Luc Feys</li>
+	<li>Nikolay Gannev</li>
+	<li>Omobola Wusu</li>
+	<li>Robert McDonald</li>
+	<li>Ronald Wouters</li>
+	<li>Simon Cockayne</li>
+	<li>Stephen Morrow</li>
+</ul>
+
+<table width='100%' bgcolor='#eeeeee'>
+	<tr>
+		<td>
+			<i>Last Edited: 7th October 2006</i>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
